@@ -1,33 +1,30 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Routes,
-} from "react-router-dom";
+import Footer from "./Components/Footer";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
-import ServicesPage from "./Pages/ServicesPage";
-import DogsPage from "./Pages/DogsPage";
+// import ServicesPage from "./Pages/ServicesPage";
+// import DogsPage from "./Pages/DogsPage";
 import ContactPage from "./Pages/ContactPage";
-import NotFoundPage from "./Pages/NotFoundPage";
+// import NotFoundPage from "./Pages/NotFoundPage";
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/services" component={ServicesPage} />
-        <Route path="/dogs" component={DogsPage} />
-        <Route path="/contact" component={ContactPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+    <div>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        {/* <Route path="/services" element={<ServicesPage />} /> */}
+        {/* <Route path="/dogs" element={<DogsPage />} /> */}
+        <Route path="/contact" element={<ContactPage />} />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
+      </Routes>
+
       <Footer />
-    </Router>
+    </div>
   );
 }
 

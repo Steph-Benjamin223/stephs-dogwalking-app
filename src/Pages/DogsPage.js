@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import DogCard from "./DogCard";
+import DogCard from "../Components/DogCard";
 
 const DogsPage = () => {
   const [dogs, setDogs] = useState([]);
