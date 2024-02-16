@@ -1,7 +1,7 @@
 function AboutPage() {
   return (
     <div>
-      <h1>About Me</h1>
+      <h1>About Steph</h1>
       <p>
         I am a full-stack web developer with a background in project management
         and customer service. I am passionate about creating beautiful,
