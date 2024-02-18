@@ -9,7 +9,7 @@ const Footer = () => {
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="6" className="mt-md-0 mt-3">
-            <h5 className="text-uppercase">Dog Walking Service</h5>
+            <h5 className="text-uppercase">Steph's Dog Walking LLC</h5>
             <p>Your trusted partner in dog walking.</p>
           </Col>
           <Col md="6" className="mb-md-0 mb-3">
@@ -20,9 +20,6 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#!">Instagram</a>
-              </li>
-              <li>
-                <a href="#!">Twitter</a>
               </li>
             </ul>
           </Col>
