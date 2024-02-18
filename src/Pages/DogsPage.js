@@ -13,20 +13,21 @@ const DogsPage = () => {
     const fetchDogs = async () => {
       //The try block is used to wrap code that might throw an exception.  It allows the handling of potential errors
       try {
-        //the const response = await fethch(apiendpoint) This line uses the fetch API to make an asynchronous HTTP GET request to the specified URL, which returns a promis that resolves to the Response to that request
+        //the const response = await fethch(apiendpoint) This line uses the fetch API to make an asynchronous HTTP GET request to the specified URL, which returns a promise that resolves to the Response to that request
         const response = await fetch(
           "https://65d0d4eaab7beba3d5e3c37b.mockapi.io/dogs"
         );
         //Once the request is completed, the response body is parsed as JSON using the .json() method, which alson returns a promise.
         const data = await response.json();
         //This line updates the dogs state with the fetched data
+
         setDogs(data);
       } catch (error) {
         //If an error occurs it is logged to the console
         console.error("Failed to fetch dogs:", error);
       }
     };
-    //This line calls the fetchDogs functionto execute the fetch request when the component mounts
+    //This line calls the fetchDogs function to execute the fetch request when the component mounts
     fetchDogs();
     //This empty array as the second argument to useEffect ensures that the effect runs only once after the initial render
   }, []);
