@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 //imports the DogCard component from the specified path.  This component will be used to display the dog data
 import DogCard from "../Components/DogCard";
+import DogForm from "../Components/DogForm";
 //This defines a functional component named DogsPage using arrow function syntax
 const DogsPage = () => {
   // initializing a state  to store dog data.  The useState hook is used to declare a state variable named dogs with an initial empty array.  setDogs is a function that is used to update the state of dogs
@@ -31,13 +32,51 @@ const DogsPage = () => {
     fetchDogs();
     //This empty array as the second argument to useEffect ensures that the effect runs only once after the initial render
   }, []);
+
+  // ONDELETE FUNCTION
+  const onDelete = async (id) => {
+    console.log(`Delete Dog did run with id: ${id}`);
+    try {
+      await fetch(`https://65d0d4eaab7beba3d5e3c37b.mockapi.io/dogs/${id}`, {
+        method: "DELETE",
+      });
+      console.log("Dog deleted:", id);
+      setDogs(dogs.filter((dog) => dog.id !== id));
+    } catch (error) {
+      console.error("Failed to delete dog:", error);
+    }
+  };
+
+  //ADD DOG FUNCTION
+  const addDog = async (newDog) => {
+    console.log("Add Dog did run with newDog:", newDog);
+    try {
+      const response = await fetch(
+        "https://65d0d4eaab7beba3d5e3c37b.mockapi.io/dogs",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newDog),
+        }
+      );
+      const data = await response.json();
+      console.log("Dog added:", data);
+      setDogs([data, ...dogs]);
+    } catch (error) {
+      console.error("Failed to add dog:", error);
+    }
+  };
+
   //This begins the JSX return statement for rendering the components UI
   return (
     //Maps over the dogs state array, generating a new DogCard component for each dog.  This function takes each dog object from the dogs array and returns a JSX element.
     <div>
+      <DogForm addDog={addDog} />
       {dogs.map((dog) => (
         //This is the DogCard component for each dog.  It is passed a unique key prop (using the dog's id to ensure React can handle the list efficiently) and the dog data as a prop.  The dog data is passed to the DogCard component as a prop named dog
-        <DogCard key={dog.id} dog={dog} />
+        <DogCard key={dog.id} dog={dog} onDelete={onDelete} />
       ))}
       {/* {JSON.stringify(dogs)} */}
     </div>

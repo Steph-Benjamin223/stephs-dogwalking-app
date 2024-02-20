@@ -1,67 +1,57 @@
 import React, { useState } from "react";
 
-const DogForm = ({ onSave }) => {
-  const [dog, setDog] = useState({
-    name: "",
-    breed: "",
-    age: "",
-  });
+function DogForm({ addDog }) {
+  const [owner, setOwner] = useState("");
+  const [dogName, setDogName] = useState("");
+  const [dogBreed, setDogBreed] = useState("");
+  const [dogAge, setDogAge] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDog({
-      ...dog,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("https://your-mockapi-endpoint/dogs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dog),
-      });
-      if (response.ok) {
-        const newDog = await response.json();
-        onSave(newDog); // Implement onSave to update the parent component's state
-      } else {
-        console.error("Failed to save the dog");
-      }
-    } catch (error) {
-      console.error("Error saving the dog:", error);
-    }
+
+    let newDog = {
+      owner: owner,
+      dogName: dogName,
+      dogBreed: dogBreed,
+      dogAge: dogAge,
+    };
+    addDog(newDog);
+
+    setOwner("");
+    setDogName("");
+    setDogBreed("");
+    setDogAge("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        name="name"
-        placeholder="Dog's name"
-        value={dog.name}
-        onChange={handleChange}
+        placeholder="Owner"
+        value={owner}
+        onChange={(e) => setOwner(e.target.value)}
       />
       <input
         type="text"
-        name="breed"
-        placeholder="Breed"
-        value={dog.breed}
-        onChange={handleChange}
+        placeholder="Dog Name"
+        value={dogName}
+        onChange={(e) => setDogName(e.target.value)}
       />
       <input
-        type="number"
-        name="age"
-        placeholder="Age"
-        value={dog.age}
-        onChange={handleChange}
+        type="text"
+        placeholder="Dog Breed"
+        value={dogBreed}
+        onChange={(e) => setDogBreed(e.target.value)}
       />
-      <button type="submit">Save Dog</button>
+      <input
+        type="text"
+        placeholder="Dog Age"
+        value={dogAge}
+        onChange={(e) => setDogAge(e.target.value)}
+      />
+      <button type="submit">Add Dog</button>
     </form>
   );
-};
+}
 
 export default DogForm;
