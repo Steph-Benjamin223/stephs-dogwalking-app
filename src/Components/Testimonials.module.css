@@ -1,0 +1,19 @@
+testimonials {
+  background-color: rgb(0, 13, 255);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  margin-bottom: 20px;
+}
+
+.name {
+  font-weight: bold;
+  margine-bottom: 10px;
+}
+
+.message {
+  font-style: italic;
+}

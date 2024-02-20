@@ -1,3 +1,16 @@
+import React from "react";
+import Testimonials from "../Components/Testimonials";
+
+const testimonials = [
+  { id: 1, name: "William M.", message: "Our dog Paco adores Stephanie!" },
+  {
+    id: 2,
+    name: "Kari R.",
+    message: "Stephanie has taken great, loving care of Otis for 10 years!",
+  },
+  // add more testimonials as needed
+];
+
 function AboutPage() {
   return (
     <div>
@@ -14,6 +27,8 @@ function AboutPage() {
         pet owners seeking peace of mind and the best care for their furry
         family members.
       </p>
+
+      <Testimonials testimonials={testimonials} />
     </div>
   );
 }
