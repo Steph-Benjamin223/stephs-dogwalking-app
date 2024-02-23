@@ -12,7 +12,6 @@ const testimonials = [
     name: "Kari R.",
     message: "Stephanie has taken great, loving care of Otis for 10 years!",
   },
-  // add more testimonials as needed
 ];
 
 function AboutPage() {
