@@ -1,5 +1,5 @@
 import React from "react";
-import myImage from "../Images/IMG_4391.jpeg"; // adjust the path as needed
+import myImage from "../Images/IMG_4391.jpeg"; // Importing image from the Images folder in SRC
 
 function HomePage() {
   return (

@@ -1,6 +1,10 @@
+//importing react for component creation
 import React from "react";
+//import ServiceCard component to display service details
 import ServiceCard from "../Components/ServiceCard";
 
+//Array of service objects, each with an id, name, and description
+//This serves as mock data for the services offered
 const services = [
   {
     id: 1,
@@ -21,6 +25,7 @@ const services = [
   },
 ];
 
+//Functional component to display the services offered
 function ServicesPage() {
   return (
     <div>
@@ -32,4 +37,5 @@ function ServicesPage() {
   );
 }
 
+//Exporting ServicesPage component for use in other parts of the application
 export default ServicesPage;

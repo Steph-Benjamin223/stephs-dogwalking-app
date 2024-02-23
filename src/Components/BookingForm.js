@@ -1,7 +1,10 @@
+//Importing React with useState hook for managing form state
 import React, { useState } from "react";
+//Importing Form and Button components from react-bootstrap for UI
 import { Form, Button } from "react-bootstrap";
 
 const BookingForm = () => {
+  //State for storing form data, initialized with empty values
   const [formData, setFormData] = useState({
     name: "",
     dogname: "",
@@ -9,6 +12,8 @@ const BookingForm = () => {
     dates: "",
     services: "",
   });
+
+  //Handler for form input changes, updating state with new value
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,17 +23,17 @@ const BookingForm = () => {
     });
   };
 
+  //Handler for form submission, logging form data to the console
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    // Here you would typically send the formData to a server
-    // For example: axios.post('/api/contact', formData)
+    e.preventDefault(); //Preventing the default form submission behavior
+    console.log("Form Data Submitted:", formData); //logging form data to the console
+    //Resetting the form data to its initial state after form submission
     setFormData({
       name: "",
       dogname: "",
       dates: "",
       services: "",
-    }); // Reset form after submission
+    });
   };
 
   return (
@@ -87,5 +92,5 @@ const BookingForm = () => {
     </Form>
   );
 };
-
+//Exporting the BookingForm component for use in other parts of the application
 export default BookingForm;

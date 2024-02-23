@@ -1,3 +1,4 @@
+//Contact Form virtually the same as Booking Form, but with different fields
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
@@ -19,13 +20,12 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
-    // Here you would typically send the formData to a server
-    // For example: axios.post('/api/contact', formData)
+
     setFormData({
       name: "",
       email: "",
       message: "",
-    }); // Reset form after submission
+    });
   };
 
   return (

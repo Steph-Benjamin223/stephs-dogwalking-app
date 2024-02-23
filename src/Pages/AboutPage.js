@@ -1,5 +1,9 @@
+//import React library for component definition
 import React from "react";
+//import Testimonials component to display customer feedback
 import Testimonials from "../Components/Testimonials";
+
+//Sample testimonials data to be displayed on the About page
 
 const testimonials = [
   { id: 1, name: "William M.", message: "Our dog Paco adores Stephanie!" },
@@ -32,5 +36,5 @@ function AboutPage() {
     </div>
   );
 }
-
+//Export the AboutPage component for use in other parts of the application
 export default AboutPage;
